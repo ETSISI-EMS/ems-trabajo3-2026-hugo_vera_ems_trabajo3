@@ -15,7 +15,6 @@ public class NodoTemporal {
 	
 	
 	public NodoTemporal() {
-		super();
 		siguiente = null;
 		listaCoordenadas=null;	
 	}

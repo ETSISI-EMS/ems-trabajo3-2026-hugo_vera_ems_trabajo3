@@ -1,94 +1,11 @@
 package com.practica.genericas;
 
-
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-public class FechaHora implements Comparable<FechaHora>{
-	public class Fecha {
-		private int dia, mes, anio;
-		 
-		public Fecha(int dia, int mes, int anio) {
-			super();
-			this.dia = dia;
-			this.mes = mes;
-			this.anio = anio;
-		}
-
-		public int getDia() {
-			return dia;
-		}
-
-		public void setDia(int dia) {
-			this.dia = dia;
-		}
-
-		public int getMes() {
-			return mes;
-		}
-
-		public void setMes(int mes) {
-			this.mes = mes;
-		}
-
-		public int getAnio() {
-			return anio;
-		}
-
-		public void setAnio(int anio) {
-			this.anio = anio;
-		}
-
-		@Override
-		public String toString() {
-			String cadena = String.format("%2d/%02d/%4d",dia,mes,anio);
-			return cadena;
-		}
-		
-		
-
-	}
-
-	public class Hora {
-		private int hora, minuto;
-
-		public Hora(int hora, int minuto) {
-			super();
-			this.hora = hora;
-			this.minuto = minuto;
-		}
-
-		public int getHora() {
-			return hora;
-		}
-
-		public void setHora(int hora) {
-			this.hora = hora;
-		}
-
-		public int getMinuto() {
-			return minuto;
-		}
-
-		public void setMinuto(int minuto) {
-			this.minuto = minuto;
-		}
-
-		@Override
-		public String toString() {
-			return String.format("%02d:%02d", hora,minuto);
-		}
-		
-
-	}
-
-	Fecha fecha;
-	Hora hora;
-	
-	public FechaHora(Fecha fecha, Hora hora) {
-		super();
-		this.fecha = fecha;
-		this.hora = hora;
-	}
+public class FechaHora implements Comparable<FechaHora> {
+	private Fecha fecha;
+	private Hora hora;
 
 	public FechaHora(int dia, int mes, int anio, int hora, int minuto) {
 		this.fecha = new Fecha(dia, mes, anio);
@@ -112,38 +29,38 @@ public class FechaHora implements Comparable<FechaHora>{
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
-		result = prime * result + ((hora == null) ? 0 : hora.hashCode());
-		return result;
+	public int compareTo(FechaHora o) {
+		// IMPORTANTE: Acceder siempre a través de los getters de 'o' y de los atributos
+		// propios
+		LocalDateTime dt1 = LocalDateTime.of(this.fecha.getAnio(), this.fecha.getMes(),
+				this.fecha.getDia(), this.hora.getHora(),
+				this.hora.getMinuto());
+		LocalDateTime dt2 = LocalDateTime.of(o.getFecha().getAnio(), o.getFecha().getMes(),
+				o.getFecha().getDia(), o.getHora().getHora(),
+				o.getHora().getMinuto());
+		return dt1.compareTo(dt2);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		FechaHora fecha = (FechaHora) obj;
-		return getFecha().getDia() == fecha.getFecha().getDia() && getFecha().getMes() == fecha.getFecha().getMes()
-				&& getFecha().getAnio() == fecha.getFecha().getAnio()
-				&& getHora().getHora() == fecha.getHora().getHora()
-				&& getHora().getMinuto() == fecha.getHora().getMinuto();
+		}
+		FechaHora other = (FechaHora) obj;
+		// Comparamos los valores internos de los objetos Fecha y Hora
+		return Objects.equals(this.fecha.getDia(), other.getFecha().getDia())
+				&& Objects.equals(this.fecha.getMes(), other.getFecha().getMes())
+				&& Objects.equals(this.fecha.getAnio(), other.getFecha().getAnio())
+				&& Objects.equals(this.hora.getHora(), other.getHora().getHora())
+				&& Objects.equals(this.hora.getMinuto(), other.getHora().getMinuto());
 	}
 
 	@Override
-	public int compareTo(FechaHora o) {
-		LocalDateTime dateTime1= LocalDateTime.of(this.getFecha().getAnio(), this.getFecha().getMes(), this.getFecha().getDia(), 
-				this.getHora().getHora(), this.getHora().getMinuto());
-		LocalDateTime dateTime2= LocalDateTime.of(o.getFecha().getAnio(), o.getFecha().getMes(), o.getFecha().getDia(), 
-				o.getHora().getHora(), o.getHora().getMinuto());
-		
-		return dateTime1.compareTo(dateTime2);
+	public int hashCode() {
+		return Objects.hash(fecha.getDia(), fecha.getMes(), fecha.getAnio(),
+				hora.getHora(), hora.getMinuto());
 	}
-	
-	
 }

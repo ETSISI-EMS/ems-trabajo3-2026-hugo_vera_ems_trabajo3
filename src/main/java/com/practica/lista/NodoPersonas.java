@@ -5,7 +5,6 @@ public class NodoPersonas {
 	private NodoPersonas siguiente;
 	
 	public NodoPersonas(String documento, NodoPersonas siguiente) {
-		super();
 		this.documento = documento;
 		this.siguiente = siguiente;
 	}

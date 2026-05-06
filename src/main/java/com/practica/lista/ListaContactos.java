@@ -13,8 +13,10 @@ public class ListaContactos {
 	 * en un instante 
 	 */
 	public void insertarNodoTemporal (PosicionPersona p) {
-		NodoTemporal aux = lista, ant=null;
-		boolean salir=false,  encontrado = false;
+		NodoTemporal aux = lista;
+		NodoTemporal ant=null;
+		boolean salir=false;
+		boolean encontrado = false;
 		/**
 		 * Busco la posición adecuada donde meter el nodo de la lista, excepto
 		 * que esté en la lista. Entonces solo añadimos una coordenada.

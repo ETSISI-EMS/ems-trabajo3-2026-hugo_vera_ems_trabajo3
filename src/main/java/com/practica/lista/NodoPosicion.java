@@ -15,7 +15,6 @@ public class NodoPosicion {
 	
 	
 	public NodoPosicion() {
-		super();
 		siguiente = null;
 	}
 
@@ -23,7 +22,6 @@ public class NodoPosicion {
 	
 	
 	public NodoPosicion(Coordenada coordenada,  int numPersonas, NodoPosicion siguiente) {
-		super();
 		this.coordenada = coordenada;		
 		this.numPersonas = numPersonas;
 		this.siguiente = siguiente;
