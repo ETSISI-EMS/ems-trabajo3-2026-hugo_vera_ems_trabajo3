@@ -92,20 +92,22 @@ public class Test_1 {
 
 	@DisplayName("Aniade persona valida")
 	@Test
-	void testAddValidPersonSuccessfully() throws EmsInvalidTypeException, EmsInvalidNumberOfDataException, EmsDuplicatePersonException, EmsDuplicateLocationException, EmsPersonNotFoundException {
-    contactosCovid.loadData(
-            "PERSONA;12345678J;Juan Manuel;Garitagoitia;juanmanuel.garitagoitia@ems.com;La calle de Juanma, 225;28005;13/01/1972\n",
-            false);
-    
-    assertEquals(3, contactosCovid.findPersona("12345678J"));
-}
+	void testAddValidPersonSuccessfully() throws EmsInvalidTypeException, EmsInvalidNumberOfDataException,
+			EmsDuplicatePersonException, EmsDuplicateLocationException, EmsPersonNotFoundException {
+		contactosCovid.loadData(
+				"PERSONA;12345678J;Juan Manuel;Garitagoitia;juanmanuel.garitagoitia@ems.com;La calle de Juanma, 225;28005;13/01/1972\n",
+				false);
+
+		assertEquals(3, contactosCovid.findPersona("12345678J"));
+	}
 
 	@DisplayName("Aniade localización valida")
 	@Test
-	void testAddValidLocationSuccessfully() throws EmsLocalizationNotFoundException, EmsInvalidTypeException, EmsInvalidNumberOfDataException, EmsDuplicatePersonException, EmsDuplicateLocationException {
+	void testAddValidLocationSuccessfully() throws EmsLocalizationNotFoundException, EmsInvalidTypeException,
+			EmsInvalidNumberOfDataException, EmsDuplicatePersonException, EmsDuplicateLocationException {
 		contactosCovid.loadData("LOCALIZACION;12345678J;16/05/2021;01:45;54.3890;28.1698\n", false);
 		Assertions.assertEquals(contactosCovid.findLocalizacion("12345678J", "16/05/2021", "01:45"), 5);
-		
+
 	}
 
 	@DisplayName("Busca una persona que existe")

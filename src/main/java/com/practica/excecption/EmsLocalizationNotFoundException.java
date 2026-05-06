@@ -1,7 +1,6 @@
 package com.practica.excecption;
 
-
-public class EmsLocalizationNotFoundException extends Exception{
+public class EmsLocalizationNotFoundException extends Exception {
 
 	public EmsLocalizationNotFoundException() {
 		super("LOCALIZACION NO ENCONTRADA!");
@@ -10,5 +9,5 @@ public class EmsLocalizationNotFoundException extends Exception{
 	public EmsLocalizationNotFoundException(String message) {
 		super(message);
 	}
-	
+
 }

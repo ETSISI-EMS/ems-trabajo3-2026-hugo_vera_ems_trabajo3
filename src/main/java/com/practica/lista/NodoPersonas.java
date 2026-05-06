@@ -3,20 +3,24 @@ package com.practica.lista;
 public class NodoPersonas {
 	private String documento;
 	private NodoPersonas siguiente;
-	
+
 	public NodoPersonas(String documento, NodoPersonas siguiente) {
 		this.documento = documento;
 		this.siguiente = siguiente;
 	}
+
 	public String getDocumento() {
 		return documento;
 	}
+
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+
 	public NodoPersonas getSiguiente() {
 		return siguiente;
 	}
+
 	public void setSiguiente(NodoPersonas siguiente) {
 		this.siguiente = siguiente;
 	}

@@ -1,6 +1,5 @@
 package com.practica.genericas;
 
-
 public class Persona {
 	private String nombre;
 	private String apellidos;
@@ -8,7 +7,7 @@ public class Persona {
 	private String email;
 	private String direccion;
 	private String cp;
-	FechaHora fechaNacimiento;
+	private FechaHora fechaNacimiento;
 
 	public Persona() {
 
@@ -91,12 +90,12 @@ public class Persona {
 		cadena += String.format("%s,%s;", getApellidos(), getNombre());
 		// correo electrónico
 		cadena += String.format("%s;", getEmail());
-        // Direccion y código postal
+		// Direccion y código postal
 		cadena += String.format("%s,%s;", getDireccion(), getCp());
-        // Fecha de nacimiento
-		cadena+=String.format("%02d/%02d/%04d\n", fecha.getFecha().getDia(), 
-        		fecha.getFecha().getMes(), 
-        		fecha.getFecha().getAnio());
+		// Fecha de nacimiento
+		cadena += String.format("%02d/%02d/%04d\n", fecha.getFecha().getDia(),
+				fecha.getFecha().getMes(),
+				fecha.getFecha().getAnio());
 
 		return cadena;
 	}
