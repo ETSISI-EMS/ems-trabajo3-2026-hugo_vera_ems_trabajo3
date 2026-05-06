@@ -1,30 +1,29 @@
 package com.practica.genericas;
 
 
-public class Coordenada {
-	private float latitud, longitud;
+public class Coordenada 
+{
+	private float latitud;
+	private float longitud;
 
-	
-	public Coordenada() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Coordenada(float latitud, float longitud) {
-		super();
+	public Coordenada(float latitud, float longitud) 
+	{
 		this.latitud = latitud;
 		this.longitud = longitud;
 	}
 
-	public float getLatitud() {
+	public float getLatitud()
+	{
 		return latitud;
 	}
 
-	public void setLatitud(float latitud) {
+	public void setLatitud(float latitud)
+	{
 		this.latitud = latitud;
 	}
 
-	public float getLongitud() {
+	public float getLongitud() 
+	{
 		return longitud;
 	}
 
@@ -43,17 +42,22 @@ public class Coordenada {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()){
 			return false;
+		}
 		Coordenada other = (Coordenada) obj;
-		if (Float.floatToIntBits(latitud) != Float.floatToIntBits(other.latitud))
+		if (Float.floatToIntBits(latitud) != Float.floatToIntBits(other.latitud)){
 			return false;
-		if (Float.floatToIntBits(longitud) != Float.floatToIntBits(other.longitud))
+		}
+		if (Float.floatToIntBits(longitud) != Float.floatToIntBits(other.longitud)){
 			return false;
+		}
 		return true;
 	}
 	

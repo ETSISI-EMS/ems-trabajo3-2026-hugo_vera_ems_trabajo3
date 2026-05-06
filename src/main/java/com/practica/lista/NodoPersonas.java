@@ -4,10 +4,6 @@ public class NodoPersonas {
 	private String documento;
 	private NodoPersonas siguiente;
 	
-	public NodoPersonas() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public NodoPersonas(String documento, NodoPersonas siguiente) {
 		super();
 		this.documento = documento;
