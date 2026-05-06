@@ -92,7 +92,7 @@ public class ListaContactos {
 			
 		}
 	}
-	
+	/*
 	private boolean buscarPersona (String documento, NodoPersonas nodo) {
 		NodoPersonas aux = nodo;
 		while(aux!=null) {
@@ -112,6 +112,7 @@ public class ListaContactos {
 		}
 		aux.setSiguiente(nuevo);		
 	}
+	*/
 	
 	public int personasEnCoordenadas () {
 		NodoPosicion aux = this.lista.getListaCoordenadas();
